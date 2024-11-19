@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Shareeffff.github.io</id>
+    <title>Shareef&apos;s Blog</title>
+    <updated>2024-11-19T15:03:17.966Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Shareeffff.github.io"/>
+    <link rel="self" href="https://Shareeffff.github.io/atom.xml"/>
+    <subtitle>记录我的学习和生活</subtitle>
+    <logo>https://Shareeffff.github.io/images/avatar.png</logo>
+    <icon>https://Shareeffff.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Shareef&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[STM32学习（一）]]></title>
+        <id>https://Shareeffff.github.io/post/hu-zhou-yan-jiu-yuan-xin-de-kai-shi/</id>
+        <link href="https://Shareeffff.github.io/post/hu-zhou-yan-jiu-yuan-xin-de-kai-shi/">
+        </link>
+        <updated>2024-11-18T09:46:46.000Z</updated>
+        <summary type="html"><![CDATA[<p>  最近有幸获得了浙江大学湖州研究院的实习机会。我本来是打算写一篇矫情一点的文章的，但我一个理工男又没有什么文采，我还是踏踏实实的，直接开始为下一步的工作做准备吧。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>  最近有幸获得了浙江大学湖州研究院的实习机会。我本来是打算写一篇矫情一点的文章的，但我一个理工男又没有什么文采，我还是踏踏实实的，直接开始为下一步的工作做准备吧。</p>
+]]></content>
+    </entry>
+</feed>
