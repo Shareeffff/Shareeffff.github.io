@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>第1节：初始数据结构与算法 | Shareef&#39;s Blog</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://Shareeffff.github.io/favicon.ico?v=1741083298366">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Shareeffff.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://Shareeffff.github.io">Shareef&#39;s Blog</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>第1节：初始数据结构与算法</h1>
+            <p class="article-meta">
+              2025-03-04
+              
+                <a href="https://Shareeffff.github.io/tag/2lG__cmAJj/" class="badge secondary">
+                  数据结构与算法
+                </a>
+              
+            </p>
+            
+            <div class="post-content" v-pre>
+              <p>  如果数据结构是食材和条例，那么算法就是烹饪方式。厨师需要选择合适的食材与合适的烹饪方式。而我们需要选择合适的数据结构与算法。</p>
+<!-- more -->
+<h2 id="11-数据结构">1.1 数据结构</h2>
+<p>  数据结构就是数据的组织结构，用来组织，存储数据。数据结构有两种分类方式，分别是按逻辑结构分类和按物理结构分类。</p>
+<p>  <strong>数据的逻辑结构</strong>分为<strong>集合结构</strong>、<strong>线性结构</strong>、<strong>树形结构</strong>和<strong>图形结构</strong>。</p>
+<ol>
+<li><strong>集合结构</strong>：与数学中集合的定义类似，其中的数据元素没有顺序，并且每个数据元素都是唯一的。</li>
+<li><strong>线性结构</strong>：数据元素排成一排，除了首和尾，每个数据元素的前面和后面都有一个相邻的数据元素。</li>
+<li><strong>树形结构</strong>：数据元素之间是一对多的层次关系。</li>
+<li><strong>图形结构</strong>：数据元素之间是多对多的关系。</li>
+</ol>
+<p>  <strong>数据物理结构</strong>有很多种，采用最多的是<strong>顺序存储结构</strong>和<strong>链式存储结构</strong>。</p>
+<ol>
+<li><strong>顺序存储结构</strong>：将数据存放在一片地址连续的存储单元中，数据元素之间的逻辑关系通过数据元素的存储地址来直接反应。在这种数据结构中，逻辑上相邻的数据元素在物理地址上也必然相邻。<br>
+<strong>优点</strong>：简单、易理解，且实际占用空间最小。<br>
+<strong>缺点</strong>：需要占用一片连续的存储单元且存储分配要事先进行，另外对于一些操作的时间效率较低（移动、删除元素等操作）</li>
+<li><strong>链式存储结构</strong>：将数据元素随机地存储在物理单元中，以链结点的形式储存，不仅存放一个数据元素的数据信息，还存放这个元素在逻辑关系上的直接后继元素所在链结点的地址，该地址被称为指针。换句话说，<strong>数据元素之间的逻辑关系是通过指针来间接反映的。</strong><br>
+<strong>优点</strong>：存储空间不必事先分配，可以在需要时临时申请，更节约空间。插入，移动，删除等操作的时间效率远比顺序存储结构高<br>
+<strong>缺点</strong>：空间开销更大，不仅要存储数据信息，还要存放指针。</li>
+</ol>
+<h2 id="12-算法">1.2 算法</h2>
+<p>  算法是一系列运算步骤，表达解决某一类问题的一般方法，对这类问题的任何一个输入，可以通过这个方法最终产生一个输出。<br>
+<strong>算法的基本特性</strong>如下所示：</p>
+<ol>
+<li><strong>输入</strong></li>
+<li><strong>输出</strong></li>
+<li><strong>有穷性</strong>：算法必须在有限步内结束，且应该在一个可接受的时间内完成。</li>
+<li><strong>确定性</strong>：组成算法的每一条指令都必须有明确的含义。</li>
+<li><strong>可行性</strong>：每一步操作都必须具有可执行性。</li>
+</ol>
+<p><strong>算法追求的目标是：最低的时间复杂度和空间复杂度</strong></p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://Shareeffff.github.io/images/avatar.png?v=1741083298366" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+          <a href="Shareeffff.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://Shareeffff.github.io/post/DataStructures_1/">第1节：初始数据结构与算法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://Shareeffff.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://Shareeffff.github.io/tag/2lG__cmAJj/" class="badge warning">
+          数据结构与算法
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Shareeffff.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liclCGMhXgAiJqQr',
+        clientSecret: '4acf30bcc06749d5af015639a5e0b53f4f18e30e',
+        repo: 'https://shareeffff.github.io',
+        owner: 'shareeffff',
+        admin: ['shareeffff'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

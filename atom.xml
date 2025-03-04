@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Shareeffff.github.io</id>
+    <title>Shareef&apos;s Blog</title>
+    <updated>2025-03-04T10:15:00.264Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Shareeffff.github.io"/>
+    <link rel="self" href="https://Shareeffff.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://Shareeffff.github.io/images/avatar.png</logo>
+    <icon>https://Shareeffff.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Shareef&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[第1节：初始数据结构与算法]]></title>
+        <id>https://Shareeffff.github.io/post/DataStructures_1/</id>
+        <link href="https://Shareeffff.github.io/post/DataStructures_1/">
+        </link>
+        <updated>2025-03-04T08:19:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>  如果数据结构是食材和条例，那么算法就是烹饪方式。厨师需要选择合适的食材与合适的烹饪方式。而我们需要选择合适的数据结构与算法。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>  如果数据结构是食材和条例，那么算法就是烹饪方式。厨师需要选择合适的食材与合适的烹饪方式。而我们需要选择合适的数据结构与算法。</p>
+<!-- more -->
+<h2 id="11-数据结构">1.1 数据结构</h2>
+<p>  数据结构就是数据的组织结构，用来组织，存储数据。数据结构有两种分类方式，分别是按逻辑结构分类和按物理结构分类。</p>
+<p>  <strong>数据的逻辑结构</strong>分为<strong>集合结构</strong>、<strong>线性结构</strong>、<strong>树形结构</strong>和<strong>图形结构</strong>。</p>
+<ol>
+<li><strong>集合结构</strong>：与数学中集合的定义类似，其中的数据元素没有顺序，并且每个数据元素都是唯一的。</li>
+<li><strong>线性结构</strong>：数据元素排成一排，除了首和尾，每个数据元素的前面和后面都有一个相邻的数据元素。</li>
+<li><strong>树形结构</strong>：数据元素之间是一对多的层次关系。</li>
+<li><strong>图形结构</strong>：数据元素之间是多对多的关系。</li>
+</ol>
+<p>  <strong>数据物理结构</strong>有很多种，采用最多的是<strong>顺序存储结构</strong>和<strong>链式存储结构</strong>。</p>
+<ol>
+<li><strong>顺序存储结构</strong>：将数据存放在一片地址连续的存储单元中，数据元素之间的逻辑关系通过数据元素的存储地址来直接反应。在这种数据结构中，逻辑上相邻的数据元素在物理地址上也必然相邻。<br>
+<strong>优点</strong>：简单、易理解，且实际占用空间最小。<br>
+<strong>缺点</strong>：需要占用一片连续的存储单元且存储分配要事先进行，另外对于一些操作的时间效率较低（移动、删除元素等操作）</li>
+<li><strong>链式存储结构</strong>：将数据元素随机地存储在物理单元中，以链结点的形式储存，不仅存放一个数据元素的数据信息，还存放这个元素在逻辑关系上的直接后继元素所在链结点的地址，该地址被称为指针。换句话说，<strong>数据元素之间的逻辑关系是通过指针来间接反映的。</strong><br>
+<strong>优点</strong>：存储空间不必事先分配，可以在需要时临时申请，更节约空间。插入，移动，删除等操作的时间效率远比顺序存储结构高<br>
+<strong>缺点</strong>：空间开销更大，不仅要存储数据信息，还要存放指针。</li>
+</ol>
+<h2 id="12-算法">1.2 算法</h2>
+<p>  算法是一系列运算步骤，表达解决某一类问题的一般方法，对这类问题的任何一个输入，可以通过这个方法最终产生一个输出。<br>
+<strong>算法的基本特性</strong>如下所示：</p>
+<ol>
+<li><strong>输入</strong></li>
+<li><strong>输出</strong></li>
+<li><strong>有穷性</strong>：算法必须在有限步内结束，且应该在一个可接受的时间内完成。</li>
+<li><strong>确定性</strong>：组成算法的每一条指令都必须有明确的含义。</li>
+<li><strong>可行性</strong>：每一步操作都必须具有可执行性。</li>
+</ol>
+<p><strong>算法追求的目标是：最低的时间复杂度和空间复杂度</strong></p>
+]]></content>
+    </entry>
+</feed>
