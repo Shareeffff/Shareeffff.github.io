@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>目标检测实战01，安全帽检测 | Shareef&#39;s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Shareeffff.github.io/favicon.ico?v=1741682023925">
+<link rel="stylesheet" href="https://Shareeffff.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="数据集采用Safety-Helmet-Wearing-Dataset，我不是科班出身，所以每一步都要边学边做。
+首先梳理一下我都应该做什么：
+
+我要读取Safety-Helmet-Wearing-Dataset的数据集，将其处理成pytor..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Shareeffff.github.io">
+        <img src="https://Shareeffff.github.io/images/avatar.png?v=1741682023925" class="site-logo">
+        <h1 class="site-title">Shareef&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Shareeffff.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">目标检测实战01，安全帽检测</h2>
+            <div class="post-date">2025-03-06</div>
+            
+            <div class="post-content" v-pre>
+              <p>数据集采用Safety-Helmet-Wearing-Dataset，我不是科班出身，所以每一步都要边学边做。<br>
+首先梳理一下我都应该做什么：</p>
+<ol>
+<li>我要读取Safety-Helmet-Wearing-Dataset的数据集，将其处理成pytorch可以直接传入模型训练的形式</li>
+<li>我要构建一个目标检测模型</li>
+<li>我要写好训练代码，训练我所构建的模型，让他的loss值在训练集上收敛</li>
+<li>我要测试我所训练的模型，看看有没有出现过拟合的现象</li>
+<li>（拓展任务）做一个前端界面，调取摄像头实时进行识别。</li>
+<li>（拓展任务）进一步完善前端界面，使得我的代码能够适用于所有数据集定义格式与Safety-Helmet-Wearing-Dataset相同的数据集</li>
+<li>（拓展任务）了解常见的数据集格式，是的这个项目兼容所有常见的数据集格式</li>
+</ol>
+<!-- more -->
+<h2 id="1-数据集读取">1. 数据集读取</h2>
+<p>这个数据集的文件结构为</p>
+<pre><code>VOC2028/
+|---Annotations/*.xml
+|---JPEGImages/*.jpg
+|---ImagesSets/
+    └──Main
+            └──test.txt
+            └──train.txt
+            └──val.txt
+            └──trainval.txt
+</code></pre>
+<p>其中，xml文件与jpg文件一一对应，xml文件中存储的是对应jpg图片中的标签。</p>
+<h3 id="11-解析xml文件内容">1.1 解析xml文件内容</h3>
+<p>下面是000000.xml的内容</p>
+<pre><code>&lt;annotation&gt;
+	&lt;folder&gt;hat01&lt;/folder&gt;
+	&lt;filename&gt;000000.jpg&lt;/filename&gt;
+	&lt;path&gt;D:\dataset\hat01\000000.jpg&lt;/path&gt;
+	&lt;source&gt;
+		&lt;database&gt;Unknown&lt;/database&gt;
+	&lt;/source&gt;
+	&lt;size&gt;
+		&lt;width&gt;947&lt;/width&gt;
+		&lt;height&gt;1421&lt;/height&gt;
+		&lt;depth&gt;3&lt;/depth&gt;
+	&lt;/size&gt;
+	&lt;segmented&gt;0&lt;/segmented&gt;
+	&lt;object&gt;
+		&lt;name&gt;hat&lt;/name&gt;
+		&lt;pose&gt;Unspecified&lt;/pose&gt;
+		&lt;truncated&gt;0&lt;/truncated&gt;
+		&lt;difficult&gt;0&lt;/difficult&gt;
+		&lt;bndbox&gt;
+			&lt;xmin&gt;60&lt;/xmin&gt;
+			&lt;ymin&gt;66&lt;/ymin&gt;
+			&lt;xmax&gt;910&lt;/xmax&gt;
+			&lt;ymax&gt;1108&lt;/ymax&gt;
+		&lt;/bndbox&gt;
+	&lt;/object&gt;
+&lt;/annotation&gt;
+</code></pre>
+<p>其中：</p>
+<ol>
+<li>annotation是跟标签，包裹整个标注信息</li>
+<li>folder是图片所在文件夹的文件名</li>
+<li>filename是标签对应图片的文件名</li>
+<li>path是图片的路径，这里我观察到他和我下载的数据集实际的文件结构貌似有出入，后续再做研究</li>
+<li>source通常用来标注数据来源，这里标注为UnKnown，不过训练用不到，所以不重要</li>
+<li>size描述图片的尺寸信息：width和height很好理解，就是图片的宽和高，depth表示图片的通道数，通道数我的理解就是一个像素对应多少个像素值，灰度图片一个像素只对应一个灰度值，而彩色图片一个像素需要对应三个值（r,g,b），所以这里的depth是3</li>
+<li>segmented用来描述这个文件是否用于图像分割任务，0表示仅用于物体检测</li>
+<li>object就是这个图片中的物体，可以有多个，这个例子中只有一个，这个物体的name是hat，姿态没有指定（Unspecified），物体完整（truncated为0），易于识别（dufficult为0），bndbox用来描述物体的位置和大小，该物体对应的矩形检测框左上角的坐标是xmin和ymin，右下角的的坐标是xmax和ymax</li>
+</ol>
+<p>了解了这些信息，我们就能通过python来读取我们想要的数据了。下面编写一个读取xml文件的函数。</p>
+<pre><code>import xml.etree.ElementTree as ET
+def read_xml(file):
+    tree=ET.parse(file)
+    root=tree.getroot()
+    filename=root.find('filename').text
+    size=root.find('size')
+    width=int(size.find('width').text)
+    height=int(size.find('height').text)
+    depth=int(size.find('depth').text)
+    objects=[]
+    for obj in root.findall('object'):
+        name=obj.find('name').text
+        bndbox=obj.find('bndbox')
+        xmin=int(bndbox.find('xmin').text)
+        ymin=int(bndbox.find('ymin').text)
+        xmax=int(bndbox.find('xmax').text)
+        ymax=int(bndbox.find('ymax').text)
+        objects.append((name,xmin,ymin,xmax,ymax))
+    return filename,width,height,depth,objects
+
+filename,width,height,depth,object=read_xml(&quot;./VOC2028/Annotations/000002.xml&quot;)
+</code></pre>
+
+            </div>
+            
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23li5Lskx4HNKfiCnb',
+        clientSecret: '25b02e51e0cb1cdde094868b3ce30f7fa6ccbe48',
+        repo: 'Shareeffff.github.io',
+        owner: 'Shareeffff',
+        admin: ['Shareeffff'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

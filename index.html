@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Shareef&#39;s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Shareeffff.github.io/favicon.ico?v=1741682023925">
+<link rel="stylesheet" href="https://Shareeffff.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="温故而知新">
+    
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Shareeffff.github.io">
+        <img src="https://Shareeffff.github.io/images/avatar.png?v=1741682023925" class="site-logo">
+        <h1 class="site-title">Shareef&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Shareeffff.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://Shareeffff.github.io/post/li-kou-shua-ti-bi-ji-shu-zu/">
+                  <h2 class="post-title">目标检测实战01，安全帽检测</h2>
+                </a>
+                <div class="post-date">
+                  2025-03-06
+                </div>
+                <div class="post-abstract">
+                  <p>数据集采用Safety-Helmet-Wearing-Dataset，我不是科班出身，所以每一步都要边学边做。<br>
+首先梳理一下我都应该做什么：</p>
+<ol>
+<li>我要读取Safety-Helmet-Wearing-Dataset的数据集，将其处理成pytorch可以直接传入模型训练的形式</li>
+<li>我要构建一个目标检测模型</li>
+<li>我要写好训练代码，训练我所构建的模型，让他的loss值在训练集上收敛</li>
+<li>我要测试我所训练的模型，看看有没有出现过拟合的现象</li>
+<li>（拓展任务）做一个前端界面，调取摄像头实时进行识别。</li>
+<li>（拓展任务）进一步完善前端界面，使得我的代码能够适用于所有数据集定义格式与Safety-Helmet-Wearing-Dataset相同的数据集</li>
+<li>（拓展任务）了解常见的数据集格式，是的这个项目兼容所有常见的数据集格式</li>
+</ol>
+
+                </div>
+              </div>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
